@@ -7,6 +7,11 @@ exports.STATUS_CODE = {
 };
 
 exports.SUCCESS = {
+    GET_PRODUCT: {
+        statuscode: this.STATUS_CODE.OK,
+        success: true,
+        message: "Product data!"
+    },
     ADMIN: {
         REGISTRATION: {
             statuscode: this.STATUS_CODE.OK,
@@ -98,6 +103,11 @@ exports.ERROR = {
         statuscode: this.STATUS_CODE.BADREQUEST,
         success: false,
         message: "Product did not added!"
+    },
+    PRODUCT_NOT_FOUND: {
+        statuscode: this.STATUS_CODE.NOTFOUND,
+        success: false,
+        message: "Product not found!"
     },
     ADMIN: {
         ADMIN_NOT_FOUND: {
