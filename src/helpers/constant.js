@@ -35,6 +35,21 @@ exports.SUCCESS = {
             success: true,
             message: "Customer login successfully!"
         },
+        GET_CUSTOMER: {
+            statuscode: this.STATUS_CODE.OK,
+            success: true,
+            message: "Customer data!"
+        },
+        UPDATE_CUSTOMER: {
+            statuscode: this.STATUS_CODE.OK,
+            success: true,
+            message: "Customer update successfully!"
+        },
+        DELETE_CUSTOMER: {
+            statuscode: this.STATUS_CODE.OK,
+            success: true,
+            message: "Customer deleted successfully!"
+        },
     }
 };
 
@@ -83,5 +98,29 @@ exports.ERROR = {
         statuscode: this.STATUS_CODE.BADREQUEST,
         success: false,
         message: "Product did not added!"
+    },
+    ADMIN: {
+        ADMIN_NOT_FOUND: {
+            statuscode: this.STATUS_CODE.NOTFOUND,
+            success: false,
+            message: "Admin not found!"
+        },
+    },
+    CUSTOMER: {
+        CUSTOMER_NOT_FOUND: {
+            statuscode: this.STATUS_CODE.NOTFOUND,
+            success: false,
+            message: "Customer not found!"
+        },
+        CAN_NOT_UPDATE_EMAIL: {
+            statuscode: this.STATUS_CODE.BADREQUEST,
+            success: false,
+            message: "Can not update email!"
+        },
+        CUSTOMER_NOT_UPDATE: {
+            statuscode: this.STATUS_CODE.BADREQUEST,
+            success: false,
+            message: "Customer not update!"
+        }
     }
 }

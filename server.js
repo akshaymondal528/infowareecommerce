@@ -3,10 +3,12 @@ const express = require('express');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
 // Local Imports
 const { CONST_CREDENTIALS } = require('./src/config/env');
 const { connectDB } = require('./src/database/db');
+const { createPublic } = require('./src/utils/createPublic');
 const { adminRoute } = require('./src/adminApi/routes');
 const { customerRoute } = require('./src/customerApi/routes');
 const { errorResponse } = require('./src/helpers/response');
@@ -15,6 +17,7 @@ const { ERROR } = require('./src/helpers/constant');
 const app = express();
 
 // Middlewares
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
@@ -32,4 +35,5 @@ const port = CONST_CREDENTIALS.PORT;
 app.listen(port, () => {
     console.log(chalk.blueBright(`Server up and running on port ${port}`));
     connectDB();
+    createPublic();
 });

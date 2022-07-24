@@ -7,6 +7,7 @@ exports.DB_CREDENTIALS = {
 
 exports.CONST_CREDENTIALS = {
     PORT: process.env.PORT || 5151,
+    BASE_URL: process.env.BASE_URL || 'http://localhost:5151',
     ADMIN_API_ROUTR_PREFIX: process.env.API_ROUTR_PREFIX || '/api/v1/admin',
     CUSTOMER_API_ROUTR_PREFIX: process.env.API_ROUTR_PREFIX || '/api/v1/customer',
     AUTH_SECRET: process.env.AUTH_SECRET

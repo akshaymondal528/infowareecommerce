@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 // Local Imports
 const { ERROR, SUCCESS } = require('../../helpers/constant');
 const customerModel = require('../../models/customer');
-const { createToken } = require('../../middlewares/createToken')
+const { createToken } = require('../../middlewares/createToken');
+const { fileUnlik } = require('../../utils/fileUnlink')
 
 /**
  * @function registerCustomer
@@ -14,15 +15,31 @@ const { createToken } = require('../../middlewares/createToken')
  */
 exports.registerCustomer = async (req) => {
     try {
-        const { typename, firsName, lastName, userName, email, mobile, password, confirmPassword } = req.body
+        const { firsName, lastName, userName, email, mobile, password, confirmPassword } = req.body
         const findUserByUserName = await customerModel.findOne({ userName });
-        if (findUserByUserName && findUserByUserName !== {}) return ERROR.USERNAME_EXIST;
+        let filePath;
+        if (findUserByUserName && findUserByUserName !== {}) {
+            if (req.file) filePath = `/${req.file.path.split('/').splice(1, 2).join('/')}`
+            fileUnlik(filePath);
+            return ERROR.USERNAME_EXIST;
+        }
         const findUserByEmail = await customerModel.findOne({ email });
-        if (findUserByEmail && findUserByEmail !== {}) return ERROR.EMAIL_EXIST;
+        if (findUserByEmail && findUserByEmail !== {}) {
+            if (req.file) filePath = `/${req.file.path.split('/').splice(1, 2).join('/')}`
+            fileUnlik(filePath);
+            return ERROR.EMAIL_EXIST;
+        }
         const findUserByMobile = await customerModel.findOne({ mobile });
-        if (findUserByMobile && findUserByMobile !== {}) return ERROR.MOBILE_EXIST;
+        if (findUserByMobile && findUserByMobile !== {}) {
+            if (req.file) filePath = `/${req.file.path.split('/').splice(1, 2).join('/')}`
+            fileUnlik(filePath);
+            return ERROR.MOBILE_EXIST;
+        }
         if (password !== confirmPassword) return ERROR.CONFIRM_PASSWORD_NOT_MATCH;
-        req.file ? image = `/${typename}/${req.file.filename}` : '';
+        if (req.file) {
+            if (!req.body.typename) req.body.typename = 'customer'
+            image = `/${req.body.typename}/${req.file.filename}`;
+        }
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(password, salt);
         const registerCustomer = await customerModel.create({
