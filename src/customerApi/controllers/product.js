@@ -5,7 +5,7 @@ const productService = require('../services/product');
 
 /**
  * @function getProduct
- * @description function to get customer
+ * @description function to get prodeuct
  * @method POST
  * @param (req res)
  * @author Akshay Mondal

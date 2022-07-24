@@ -10,5 +10,5 @@ exports.CONST_CREDENTIALS = {
     BASE_URL: process.env.BASE_URL || 'http://localhost:5151',
     ADMIN_API_ROUTR_PREFIX: process.env.API_ROUTR_PREFIX || '/api/v1/admin',
     CUSTOMER_API_ROUTR_PREFIX: process.env.API_ROUTR_PREFIX || '/api/v1/customer',
-    AUTH_SECRET: process.env.AUTH_SECRET
+    AUTH_SECRET: process.env.AUTH_SECRET || 'RgUkXp2s5v8y/B?E(H+MbQe'
 }

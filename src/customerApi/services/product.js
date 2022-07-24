@@ -4,7 +4,7 @@ const productModel = require('../../models/product');
 
 /**
  * @function getProduct
- * @description function to get customer
+ * @description function to get product
  * @param (req)
  * @author Akshay Mondal
  */

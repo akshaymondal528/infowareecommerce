@@ -12,6 +12,11 @@ exports.SUCCESS = {
         success: true,
         message: "Product data!"
     },
+    ADD_ORDER: {
+        statuscode: this.STATUS_CODE.OK,
+        success: true,
+        message: "Order added successfully!"
+    },
     ADMIN: {
         REGISTRATION: {
             statuscode: this.STATUS_CODE.OK,
@@ -108,6 +113,11 @@ exports.ERROR = {
         statuscode: this.STATUS_CODE.NOTFOUND,
         success: false,
         message: "Product not found!"
+    },
+    ORDER_NOT_ADD: {
+        statuscode: this.STATUS_CODE.NOTFOUND,
+        success: false,
+        message: "Order not added!"
     },
     ADMIN: {
         ADMIN_NOT_FOUND: {
