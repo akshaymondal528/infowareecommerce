@@ -5,7 +5,7 @@ const { successResponse, errorResponse, errorResponseCatch } = require('../../he
 
 /**
  * @function registerCustomer
- * @description function to register admin
+ * @description function to register customer
  * @method POST
  * @param (req res)
  * @author Akshay Mondal
@@ -21,6 +21,30 @@ exports.registerCustomer = async (req, res) => {
             }
         } else {
             errorResponseCatch(res, registerCustomer.success, registerCustomer.statuscode, registerCustomer.message, registerCustomer.error);
+        }
+    } catch (error) {
+        errorResponseCatch(res, ERROR.INTERNAL_SERVER_ERROR.success, ERROR.INTERNAL_SERVER_ERROR.statuscode, ERROR.INTERNAL_SERVER_ERROR.message, error.toString());
+    }
+};
+
+/**
+ * @function loginCustomer
+ * @description function to login customer
+ * @method POST
+ * @param (req res)
+ * @author Akshay Mondal
+ */
+exports.loginCustomer = async (req, res) => {
+    try {
+        const loginCustomer = await authService.loginCustomer(req);
+        if (!loginCustomer.error) {
+            if (loginCustomer.success === true) {
+                successResponse(res, loginCustomer.success, loginCustomer.statuscode, loginCustomer.message, loginCustomer.data);
+            } else {
+                errorResponse(res, loginCustomer.success, loginCustomer.statuscode, loginCustomer.message, loginCustomer.data);
+            }
+        } else {
+            errorResponseCatch(res, loginCustomer.success, loginCustomer.statuscode, loginCustomer.message, loginCustomer.error);
         }
     } catch (error) {
         errorResponseCatch(res, ERROR.INTERNAL_SERVER_ERROR.success, ERROR.INTERNAL_SERVER_ERROR.statuscode, ERROR.INTERNAL_SERVER_ERROR.message, error.toString());

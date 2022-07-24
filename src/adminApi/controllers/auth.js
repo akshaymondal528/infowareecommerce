@@ -29,7 +29,7 @@ exports.registerAdmin = async (req, res) => {
 
 /**
  * @function loginAdmin
- * @description function to register admin
+ * @description function to login admin
  * @method POST
  * @param (req res)
  * @author Akshay Mondal

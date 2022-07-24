@@ -29,7 +29,12 @@ exports.SUCCESS = {
             statuscode: this.STATUS_CODE.OK,
             success: true,
             message: "Customer register successfully!"
-        }
+        },
+        LOGIN: {
+            statuscode: this.STATUS_CODE.OK,
+            success: true,
+            message: "Customer login successfully!"
+        },
     }
 };
 
@@ -49,43 +54,34 @@ exports.ERROR = {
         success: false,
         message: "Invalid token!"
     },
-    ADMIN: {
-        USERNAME_EXIST: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Username already exist!"
-        },
-        EMAIL_EXIST: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Email already exist!"
-        },
-        MOBILE_EXIST: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Mobile number already exist!"
-        },
-        CONFIRM_PASSWORD_NOT_MATCH: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Confirm password not match!"
-        },
-        INVALID_CREDENTIALS: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Invalid credentials!"
-        },
-        PRODUCT_NOT_ADD: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Product did not added!"
-        },
+    USERNAME_EXIST: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Username already exist!"
     },
-    CUSTOMER: {
-        EMAIL_EXIST: {
-            statuscode: this.STATUS_CODE.BADREQUEST,
-            success: false,
-            message: "Email already exist!"
-        },
+    EMAIL_EXIST: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Email already exist!"
+    },
+    MOBILE_EXIST: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Mobile number already exist!"
+    },
+    CONFIRM_PASSWORD_NOT_MATCH: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Confirm password not match!"
+    },
+    INVALID_CREDENTIALS: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Invalid credentials!"
+    },
+    PRODUCT_NOT_ADD: {
+        statuscode: this.STATUS_CODE.BADREQUEST,
+        success: false,
+        message: "Product did not added!"
     }
 }
