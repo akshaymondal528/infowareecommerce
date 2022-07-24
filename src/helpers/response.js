@@ -16,12 +16,11 @@ exports.errorResponse = (res, success, status, message, data = []) => {
     });
 };
 
-exports.errorResponseUnauth = (res, success, status, message, error) => {
+exports.errorResponseUnauth = (res, success, status, message) => {
     return res.status(status).json({
         success,
         status,
-        message,
-        error
+        message
     });
 };
 

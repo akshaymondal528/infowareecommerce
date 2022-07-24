@@ -26,6 +26,10 @@ const adminSchema = mongoose.Schema({
         type: String,
         default: ''
     },
+    authKey: {
+        type: String,
+        default: ''
+    },
     isActive: {
         type: Boolean,
         default: true
